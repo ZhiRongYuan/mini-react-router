@@ -1,0 +1,52 @@
+<!--
+ * @Author: yuanzhirong
+ * @Date: 2022-09-12 10:01:55
+ * @LastEditors: yuanzhirong
+ * @LastEditTime: 2022-09-15 15:51:02
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <input type="button" value="随机选择" id="input1" />
+    <div id="div1"></div>
+    <script>
+      window.onload = function () {
+        var oInput = document.getElementById("input1");
+        var oDiv = document.getElementById("div1");
+
+        oInput.onclick = function () {
+          var arr = randomNum(35, 7);
+          history.pushState(arr, "");
+          oDiv.innerHTML = arr;
+        };
+
+        window.onpopstate = function (ev) {
+          oDiv.innerHTML = ev.state;
+        };
+
+        function randomNum(iAll, iNow) {
+          var arr = [];
+          var newArr = [];
+          for (var i = 1; i <= iAll; i++) {
+            arr.push(i);
+          }
+          for (var i = 0; i < iNow; i++) {
+            const randomNum = Math.floor(Math.random() * arr.length);
+            const num = arr.splice(Math.floor(randomNum), 1);
+            newArr.push(num);
+          }
+          return newArr;
+        }
+      };
+    </script>
+  </body>
+</html>
