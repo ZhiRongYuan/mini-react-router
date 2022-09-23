@@ -2,7 +2,7 @@
  * Author: yuanzhirong
  * Date: 2022-09-12 10:24:38
  * LastEditors: yuanzhirong
- * LastEditTime: 2022-09-15 15:51:40
+ * LastEditTime: 2022-09-23 15:35:27
  * Description:
  */
 import React, { useCallback } from "react";
@@ -63,21 +63,21 @@ function renderMatches(matches) {
 export function useNavigate() {
   const { navigator } = React.useContext(NavigationContext);
 
-  // const navigate = useCallback(
-  //   (to, options = {}) => {
-  //     if (typeof to === "number") {
-  //       navigator.go(to);
-  //       return;
-  //     }
-  //     (!!options.replace ? navigator.replace : navigator.push)(
-  //       to,
-  //       options.state
-  //     );
-  //   },
-  //   [navigator]
-  // );
+  const navigate = useCallback(
+    (to, options = {}) => {
+      if (typeof to === "number") {
+        navigator.go(to);
+        return;
+      }
+      (!!options.replace ? navigator.replace : navigator.push)(
+        to,
+        options.state
+      );
+    },
+    [navigator]
+  );
 
-  return navigator.push;
+  return navigate;
 }
 
 export function useLocation() {

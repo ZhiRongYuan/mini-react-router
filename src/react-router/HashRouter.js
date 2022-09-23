@@ -1,11 +1,11 @@
 /*
  * Author: yuanzhirong
- * Date: 2022-09-12 10:23:30
+ * Date: 2022-09-23 14:32:24
  * LastEditors: yuanzhirong
- * LastEditTime: 2022-09-22 00:36:15
+ * LastEditTime: 2022-09-23 14:33:42
  * Description:
  */
-import { createBrowserHistory } from "history";
+import { createHashHistory } from "history";
 import { useLayoutEffect, useRef, useState } from "react";
 import Router from "./Router";
 
@@ -13,7 +13,7 @@ export default function BrowserRouter({ children }) {
   let historyRef = useRef(null);
 
   if (!historyRef.current) {
-    historyRef.current = createBrowserHistory();
+    historyRef.current = createHashHistory();
   }
 
   const history = historyRef.current;

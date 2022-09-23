@@ -2,7 +2,7 @@
  * Author: yuanzhirong
  * Date: 2022-09-07 16:40:42
  * LastEditors: yuanzhirong
- * LastEditTime: 2022-09-15 15:49:55
+ * LastEditTime: 2022-09-23 14:39:26
  * Description:
  */
 import React from "react";
@@ -10,7 +10,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 // import { BrowserRouter } from "react-router-dom";
-import { BrowserRouter } from "./react-router";
+import { BrowserRouter, HashRouter } from "./react-router";
+// import { BrowserRouter } from "./router";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
