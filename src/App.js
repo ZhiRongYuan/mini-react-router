@@ -2,19 +2,10 @@
  * Author: yuanzhirong
  * Date: 2022-09-07 16:40:42
  * LastEditors: yuanzhirong
- * LastEditTime: 2022-09-23 10:27:20
+ * LastEditTime: 2022-09-28 20:40:00
  * Description:
  */
 import logo from "./logo.svg";
-// import {
-//   Routes,
-//   Route,
-//   Link,
-//   Outlet,
-//   useParams,
-//   useNavigate,
-//   Navigate,
-// } from "react-router-dom";
 import {
   Routes,
   Route,
@@ -23,16 +14,16 @@ import {
   useParams,
   useNavigate,
   Navigate,
-} from "./react-router";
+} from "react-router-dom";
 // import {
 //   Routes,
 //   Route,
 //   Link,
 //   Outlet,
-//   useNavigate,
 //   useParams,
+//   useNavigate,
 //   Navigate,
-// } from "./router";
+// } from "./react-router";
 import "./App.css";
 
 function App() {
@@ -46,7 +37,7 @@ function App() {
           </Route>
           <Route path="setting" element={<Setting />} />
         </Route>
-        <Route path="login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );
@@ -72,9 +63,6 @@ function Home() {
   return (
     <div>
       <h1>home</h1>
-      <Routes>
-        <Route path="test" element={<p>Welcome, new user</p>} />
-      </Routes>
     </div>
   );
 }
