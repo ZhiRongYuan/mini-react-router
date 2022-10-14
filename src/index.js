@@ -2,15 +2,15 @@
  * Author: yuanzhirong
  * Date: 2022-09-07 16:40:42
  * LastEditors: yuanzhirong
- * LastEditTime: 2022-09-28 20:38:44
+ * LastEditTime: 2022-09-30 11:27:54
  * Description:
  */
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { BrowserRouter } from "react-router-dom";
-// import { BrowserRouter, HashRouter } from "./react-router";
+// import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter } from "./react-router";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -2,7 +2,7 @@
  * Author: yuanzhirong
  * Date: 2022-09-12 12:30:50
  * LastEditors: yuanzhirong
- * LastEditTime: 2022-09-23 14:34:01
+ * LastEditTime: 2022-09-30 11:28:19
  * Description:
  */
 import BrowserRouter from "./BrowserRouter";
@@ -12,7 +12,7 @@ import Route from "./Route";
 import Link from "./Link";
 import Outlet from "./Outlet";
 import Navigate from "./Navigate";
-import { useNavigate, useParams, useLocation } from "./hooks";
+import { useNavigate, useParams, useLocation, useOutlet } from "./hooks";
 
 export {
   BrowserRouter,
@@ -25,4 +25,5 @@ export {
   useNavigate,
   useParams,
   useLocation,
+  useOutlet,
 };
