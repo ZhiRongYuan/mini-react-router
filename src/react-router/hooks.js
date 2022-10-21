@@ -2,7 +2,7 @@
  * Author: yuanzhirong
  * Date: 2022-09-12 10:24:38
  * LastEditors: yuanzhirong
- * LastEditTime: 2022-10-14 16:30:41
+ * LastEditTime: 2022-10-21 18:18:05
  * Description:
  */
 import React, { useCallback } from "react";
@@ -23,26 +23,36 @@ export function useRoutes(routes) {
   console.log(matches);
   return renderMatches(matches);
 
-  // return routes.map((route) => {
-  //   // const match = pathname === route.path || pathname === "/" + route.path;
-  //   const match = pathname.startsWith(route.path);
+  return routes.map((route) => {
+    // const match = pathname === route.path || pathname === "/" + route.path;
+    const match = pathname.startsWith(route.path);
 
-  //   // return match ? route.element : null;
-  //   return (
-  //     match &&
-  //     route.children.map((child) => {
-  //       let m = normalizePathname(child.path) === pathname;
+    // return match ? route.element : null;
+    // return (
+    //   match &&
+    //   route.children.map((child) => {
+    //     const matcha = pathname === child.path || pathname === "/" + child.path;
 
-  //       return (
-  //         m && (
-  //           <RouteContext.Provider value={{ outlet: child.element }}>
-  //             {route.element !== undefined ? route.element : <Outlet />}
-  //           </RouteContext.Provider>
-  //         )
-  //       );
-  //     })
-  //   );
-  // });
+    //     return matcha
+    //       ? React.cloneElement(route.element, { children: child.element })
+    //       : null;
+    //   })
+    // );
+    return (
+      match &&
+      route.children.map((child) => {
+        let m = normalizePathname(child.path) === pathname;
+
+        return (
+          m && (
+            <RouteContext.Provider value={{ outlet: child.element }}>
+              {route.element !== undefined ? route.element : <Outlet />}
+            </RouteContext.Provider>
+          )
+        );
+      })
+    );
+  });
 }
 
 function renderMatches(matches) {
@@ -63,6 +73,7 @@ function renderMatches(matches) {
 export function useNavigate() {
   const { navigator } = React.useContext(NavigationContext);
 
+  // return navigator.push;
   const navigate = useCallback(
     (to, options = {}) => {
       if (typeof to === "number") {

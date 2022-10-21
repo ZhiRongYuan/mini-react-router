@@ -2,7 +2,7 @@
  * Author: yuanzhirong
  * Date: 2022-09-07 16:40:42
  * LastEditors: yuanzhirong
- * LastEditTime: 2022-09-30 11:30:29
+ * LastEditTime: 2022-10-21 18:25:20
  * Description:
  */
 import logo from "./logo.svg";
@@ -39,18 +39,19 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="home" element={<Home />} />
+          <Route path="about" element={<About />} />
           <Route path="user" element={<User />}>
             <Route path=":username" element={<UserInfo />} />
           </Route>
           <Route path="setting" element={<Setting />} />
         </Route>
-        <Route path="/login" element={<Login />} />
+        {/* <Route path="/login" element={<Login />} /> */}
       </Routes>
     </div>
   );
 }
 
-function Layout() {
+function Layout(props) {
   const location = useLocation();
   const curOutlet = useOutlet();
   if (!a[location.pathname]) {
@@ -61,8 +62,8 @@ function Layout() {
     <div>
       <h1>Welcome to the app!</h1>
       <nav>
-        <Link to="/home">home</Link> | <Link to="/user">user</Link> |{" "}
-        <Link to="/setting">setting</Link>
+        <Link to="/home">home</Link> | <Link to="/about">about</Link> |{" "}
+        <Link to="/user">user</Link> |<Link to="/setting">setting</Link>
       </nav>
 
       <div className="content">
@@ -85,6 +86,15 @@ function Home() {
   return (
     <div>
       <h1>home</h1>
+      <input />
+    </div>
+  );
+}
+
+function About() {
+  return (
+    <div>
+      <h1>About</h1>
       <input />
     </div>
   );
